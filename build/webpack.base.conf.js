@@ -17,7 +17,7 @@ const PATHS = {
 
 
 const HTMLWebpackPluginConfig = new HtmlWebpackPlugin({
-    template : __dirname + '../app/index.html',
+    template :'./app/index.html',
     filename : 'index.html'
 });
 
