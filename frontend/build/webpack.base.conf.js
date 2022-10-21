@@ -17,7 +17,7 @@ const PATHS = {
 
 
 const HTMLWebpackPluginConfig = new HtmlWebpackPlugin({
-    template :'./app/index.html',
+    template :'./index.html',
     filename : 'index.html'
 });
 
@@ -27,7 +27,7 @@ module.exports = {
         paths: PATHS
     },
 
-    entry :'./app/index.js',
+    entry :'./index.js',
 
     output: {
         filename: `[name].[chunkhash].js`,
@@ -83,8 +83,8 @@ module.exports = {
 
         // new CopyWebpackPlugin({
         //     patterns: [
-        //         { from: './app/assets/img', to: './assets/img' },
-        //         { from: './app/assets/fonts', to: './assets/fonts' },
+        //         { from: './assets/img', to: './assets/img' },
+        //         { from: './assets/fonts', to: './assets/fonts' },
         //     ]
         // }),
         

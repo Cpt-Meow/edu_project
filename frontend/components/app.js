@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import TestComponent from './Main'
 
 
 export class AppComponent extends Component {
@@ -11,8 +12,10 @@ export class AppComponent extends Component {
     render() {
         return (
             <div>
-                hello react
-                </div>
+                <div>
+                    hello react
+                    </div>
+            </div>
         )
     }
 
