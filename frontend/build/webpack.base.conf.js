@@ -7,7 +7,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 const PATHS = {
     app: path.join(__dirname, '../app'),
     dist: path.join(__dirname, '../dist'),
-    assets: 'assets/'
+    assets: path.join(__dirname, '../frontend/assets')
 }
 
 // Pages const for HtmlWebpackPlugin
@@ -60,7 +60,7 @@ module.exports = {
                 loader: 'url-loader',
                 options: {
                     name: '[name].[ext]',
-                    outputPath: './assets/fonts/',
+                    outputPath: '../frontend/assets/fonts',
                 }
             },
             {
@@ -68,7 +68,7 @@ module.exports = {
                 loader:  'url-loader',
                 options: {
                     name: '[name].[ext]',
-                    outputPath: './assets/img/',
+                    outputPath: '../frontend/assets/img/',
                         }
             }
         ]
@@ -83,8 +83,8 @@ module.exports = {
 
         new CopyWebpackPlugin({
             patterns: [
-                { from: '../assets/img', to: '../assets/img' },
-                { from: '../assets/fonts', to: '../assets/fonts' },
+                { from: '../frontend/assets/img', to: '../frontend/assets/img' },
+                { from: '../frontend/assets/fonts', to: '../frontend/assets/fonts' },
             ]
         }),
         

@@ -6,7 +6,6 @@ const devWebpackConfig = merge(baseWebpackConfig, {
   // DEV config
   mode: 'development',
   devServer: {
-    // static: baseWebpackConfig.externals.paths.dist,
     port: 8080,
     liveReload: true
   },
