@@ -55,22 +55,22 @@ module.exports = {
                 loader: 'babel-loader',
                 exclude: '/node_modules/'
             },
-            // {
-            //     test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
-            //     loader: 'url-loader',
-            //     options: {
-            //         name: '[name].[ext]',
-            //         outputPath: './assets/fonts/',
-            //     }
-            // },
-            // {
-            //     test: /\.(png|jpg|gif|svg)$/,
-            //     loader:  'url-loader',
-            //     options: {
-            //         name: '[name].[ext]',
-            //         outputPath: './assets/img/',
-            //             }
-            // }
+            {
+                test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+                loader: 'url-loader',
+                options: {
+                    name: '[name].[ext]',
+                    outputPath: './assets/fonts/',
+                }
+            },
+            {
+                test: /\.(png|jpg|gif|svg)$/,
+                loader:  'url-loader',
+                options: {
+                    name: '[name].[ext]',
+                    outputPath: './assets/img/',
+                        }
+            }
         ]
     },
     resolve: {
@@ -81,12 +81,12 @@ module.exports = {
     plugins : [
         HTMLWebpackPluginConfig,
 
-        // new CopyWebpackPlugin({
-        //     patterns: [
-        //         { from: './assets/img', to: './assets/img' },
-        //         { from: './assets/fonts', to: './assets/fonts' },
-        //     ]
-        // }),
+        new CopyWebpackPlugin({
+            patterns: [
+                { from: '../assets/img', to: '../assets/img' },
+                { from: '../assets/fonts', to: '../assets/fonts' },
+            ]
+        }),
         
         // Automatic creation any html
         // ...PAGES.map(page => new HtmlWebpackPlugin({
