@@ -1,7 +1,8 @@
-const path = require('path')
-const fs = require('fs')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const CopyWebpackPlugin = require('copy-webpack-plugin')
+const path = require('path');
+const fs = require('fs');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 
 const PATHS = {
@@ -70,7 +71,36 @@ module.exports = {
                     name: '[name].[ext]',
                     outputPath: '../frontend/assets/img/',
                         }
-            }
+            },
+            {
+                test: /\.(scss|css)$/,
+                use: [
+                    'style-loader',
+                    { loader: MiniCssExtractPlugin.loader,
+                        options: {
+                            esModule: false
+                        }
+                    },{
+                        loader: 'css-loader',
+                        options: { sourceMap: true }
+                    }, {
+                        loader: 'postcss-loader',
+                        options: { sourceMap: true, 
+                            // postcssOptions: { 
+                            //     path: '../postcss.config.js' 
+                            // } 
+                        }
+                    }, {
+                        loader: 'resolve-url-loader',
+                        options: { 
+                            sourceMap: true,
+                            removeCR: true }
+                    }, {
+                        loader: 'sass-loader',
+                        options: { sourceMap: true }
+                    }
+                ]
+            }, 
         ]
     },
     resolve: {
@@ -80,18 +110,14 @@ module.exports = {
     },
     plugins : [
         HTMLWebpackPluginConfig,
-
+        new MiniCssExtractPlugin({
+            filename: '../frontend/assets/css/[name].[hash].css',
+        }),
         new CopyWebpackPlugin({
             patterns: [
                 { from: '../frontend/assets/img', to: '../frontend/assets/img' },
                 { from: '../frontend/assets/fonts', to: '../frontend/assets/fonts' },
             ]
-        }),
-        
-        // Automatic creation any html
-        // ...PAGES.map(page => new HtmlWebpackPlugin({
-        //     template: `${PAGES_DIR}/${page}`,
-        //     filename: `./${page.replace(/\.js/,'.html')}`
-        // }))
+        })
     ]
 };

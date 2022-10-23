@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import Header from './header/header';
+import Logo from './logo/logo';
 
 
 export class AppComponent extends Component {
@@ -10,13 +12,10 @@ export class AppComponent extends Component {
 
     render() {
         return (
-            <div>
-                <div>
-                    hello react
-                    </div>
-            </div>
+            <Logo/>
+            // <div>
+            //     hello react
+            // </div>
         )
     }
-
-
 }

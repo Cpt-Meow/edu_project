@@ -7,7 +7,8 @@ const devWebpackConfig = merge(baseWebpackConfig, {
   mode: 'development',
   devServer: {
     port: 8080,
-    liveReload: true
+    liveReload: true,
+    hot: false
   },
   plugins: [
     new webpack.SourceMapDevToolPlugin({
