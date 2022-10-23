@@ -2,11 +2,10 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 import { AppComponent } from './components/app';
 import $ from 'jquery';
+import '../frontend/assets/scss/main.scss';
 window.jQuery = $;
 window.$ = $;
-
 require('jquery')
-require('./assets/scss/main.scss')
 
 ReactDOM.render(
     <AppComponent />,

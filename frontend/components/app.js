@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import '../assets/scss/main.scss';
 import Header from './header/header';
 import Logo from './logo/logo';
 

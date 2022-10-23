@@ -111,7 +111,7 @@ module.exports = {
     plugins : [
         HTMLWebpackPluginConfig,
         new MiniCssExtractPlugin({
-            filename: '../frontend/assets/css/[name].[hash].css',
+            filename: 'css/[name].[hash].css',
         }),
         new CopyWebpackPlugin({
             patterns: [
