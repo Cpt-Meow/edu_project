@@ -11,11 +11,6 @@ const PATHS = {
     assets: path.join(__dirname, '../frontend/assets')
 }
 
-// Pages const for HtmlWebpackPlugin
-// const PAGES_DIR = PATHS.app
-// const PAGES_DIR = `${PATHS.app}`
-// const PAGES = fs.readdirSync(PAGES_DIR).filter(fileName => fileName.endsWith('.js'))
-
 
 const HTMLWebpackPluginConfig = new HtmlWebpackPlugin({
     template :'./index.html',
@@ -69,7 +64,7 @@ module.exports = {
                 loader:  'url-loader',
                 options: {
                     name: '[name].[ext]',
-                    outputPath: '../frontend/assets/img/',
+                    outputPath: '/public',
                         }
             },
             {
@@ -85,11 +80,7 @@ module.exports = {
                         options: { sourceMap: true }
                     }, {
                         loader: 'postcss-loader',
-                        options: { sourceMap: true, 
-                            // postcssOptions: { 
-                            //     path: '../postcss.config.js' 
-                            // } 
-                        }
+                        options: { sourceMap: true }
                     }, {
                         loader: 'resolve-url-loader',
                         options: { 
